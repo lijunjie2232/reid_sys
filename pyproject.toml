@@ -1,0 +1,66 @@
+[project]
+name = "reid-sys"
+version = "0.1.0"
+description = "跨镜头 Re-ID 目标追踪系统（可扩展 demo 实现）"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    # 推理（本机 GTX 1050 Ti / sm_61，cu126 是最后一批带 Pascal 的官方轮子）
+    # 锁在 2.7.0 这一档：2.7.1 虽然同属 cu126，但本机实测通过的是 2.7.0，
+    # 不写死上限的话 `uv sync` 会静默升到 2.7.1 并重拷 ~2.5GB。
+    "torch>=2.7.0,<2.7.1",
+    "torchvision>=0.22.0,<0.22.1",
+    # 端侧：yolo26n 检测 + ByteTrack
+    "ultralytics",
+    # Smart Gateway
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.30",
+    "python-multipart>=0.0.9",
+    # 云侧：向量库
+    "pymilvus>=2.5",
+    # milvus-lite 3.x 是纯 Python 的进程内 Milvus（pymilvus 的元数据在 win32 上排除了它，必须显式装）
+    "milvus-lite>=3.2",
+    "faiss-cpu",
+    "pyarrow",
+    # 通用
+    "numpy>=1.26",
+    "opencv-python>=4.10",
+    "pillow",
+    # fast-reid 运行期依赖（third_part/fast-reid 没有 setup.py，通过 sys.path 引入）
+    "yacs",
+    "termcolor",
+    "tabulate",
+    "scikit-learn",
+    "matplotlib",
+    "scipy",
+    "prettytable",
+    "easydict",
+    "pyyaml",
+]
+
+[project.scripts]
+# 一键初始化 demo 数据：解压 data/*.zip + 校验/补建 Milvus 索引
+reid-init = "scripts.init_data:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+# reid_sys 是库本体；scripts 里放运维入口（reid-init 等），也要随包安装
+packages = ["reid_sys", "scripts"]
+
+[[tool.uv.index]]
+name = "pytorch-cu126"
+url = "https://download.pytorch.org/whl/cu126"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu126" }
+torchvision = { index = "pytorch-cu126" }
+ultralytics = { path = "third_part/ultralytics", editable = true }
+
+[dependency-groups]
+dev = [
+    "zensical>=0.0.66",
+]

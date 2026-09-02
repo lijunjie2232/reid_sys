@@ -1,0 +1,60 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+.vscode/
+.cache/
+.venv*/
+
+# agent temp list
+.claude/
+.cursor/
+.windsurf/
+.trae/
+.kilo/
+.workbuddy-ai/
+.gemini/
+.agent/
+.agents/
+.codex/
+.goose/
+.kiro/
+.opencode/
+
+# Zensical 文档构建产物
+site/
+
+# docs/fig/del：从 docs/fig 移出的未使用截图，仅本地保留，不入库
+docs/fig/del/
+
+# Virtual environments
+.venv
+.venv.win
+
+# 前端
+node_modules/
+.npm-cache/
+
+# 模型权重
+models/
+
+# ---------------------------------------------------------------------------
+# data/
+#
+# 只入库两样：两个 demo 数据集 zip + 数据集清单 datasets.json。
+# 其余全部忽略 —— 包括本地向量库 milvus_reid.db（85MB 目录，含 LOCK/parquet/wal，
+# 与本机进程状态耦合），它由 `reid-init` 解压后自动重建：
+#
+#   uv run reid-init      # 解压 data/*.zip + 校验/补建 Milvus 索引
+#
+# 注：gitignore 是「后面的规则覆盖前面的」，所以否定规则必须写在 data/* 之后。
+# ---------------------------------------------------------------------------
+data/*
+!data/datasets.json
+!data/data1.zip
+!data/data2.zip
+
+# 加了新数据集（比如 data/data3）时，在这里补一行 !data/data3.zip

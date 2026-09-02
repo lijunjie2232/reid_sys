@@ -1,0 +1,6 @@
+[submodule "third_part/fast-reid"]
+	path = third_part/fast-reid
+	url = https://github.com/JDAI-CV/fast-reid
+[submodule "third_part/ultralytics"]
+	path = third_part/ultralytics
+	url = https://github.com/ultralytics/ultralytics.git

@@ -1,0 +1,223 @@
+{
+  "_comment": "摄像头与边缘节点台账（演示用）。当前项目仅作为前期可行性验证使用，部分代码沿用但并不代表最终系统。",
+  "_note": [
+    "坐标采用 GCJ-02（火星坐标系），对应腾讯地图 / 高德 / 百度的底图坐标系。",
+    "点位为成都市高新区公开道路附近的近似位置，用于演示地图渲染与轨迹串联，",
+    "不代表真实卡口部署位置，亦不指向任何涉密或敏感场所。",
+    "真实接入后应由设备管理平台（RTSP / GB28181 / ONVIF）动态下发，本文件仅作前端演示数据源。"
+  ],
+  "city": "成都市",
+  "district": "高新区",
+  "district_en": "Chengdu Hi-Tech Industrial Development Zone",
+  "coordinate_system": "GCJ-02",
+  "center": { "lat": 30.5728, "lng": 104.0668 },
+  "zoom": 13.5,
+
+  "cameras": [
+    {
+      "id": "IPC-0001",
+      "name": "天府大道 · 北段路口",
+      "road": "天府大道中段",
+      "zone": "A",
+      "zone_name": "天府大道片区",
+      "type": "IPC",
+      "model": "RV1106 级智能 IPC",
+      "lat": 30.5802,
+      "lng": 104.0658,
+      "mount": "立杆 6m · 朝南",
+      "resolution": "1080P@15fps",
+      "npu_tops": 0.5,
+      "edge_node": "EDGE-01",
+      "status": "offline",
+      "stream_url": null,
+      "rtsp": "preset://gb28181/IPC-0001"
+    },
+    {
+      "id": "IPC-0002",
+      "name": "天府大道 · 中段商圈",
+      "road": "天府大道中段",
+      "zone": "A",
+      "zone_name": "天府大道片区",
+      "type": "IPC",
+      "model": "RV1106 级智能 IPC",
+      "lat": 30.5766,
+      "lng": 104.0662,
+      "mount": "立杆 6m · 朝东",
+      "resolution": "1080P@15fps",
+      "npu_tops": 0.5,
+      "edge_node": "EDGE-01",
+      "status": "offline",
+      "stream_url": null,
+      "rtsp": "preset://gb28181/IPC-0002"
+    },
+    {
+      "id": "IPC-0003",
+      "name": "交子大道 · 金融城广场",
+      "road": "交子大道",
+      "zone": "B",
+      "zone_name": "交子金融片区",
+      "type": "IPC",
+      "model": "Hi3516 级智能 IPC",
+      "lat": 30.5697,
+      "lng": 104.0712,
+      "mount": "球机 4m · 全景",
+      "resolution": "1080P@15fps",
+      "npu_tops": 0.5,
+      "edge_node": "EDGE-02",
+      "status": "offline",
+      "stream_url": null,
+      "rtsp": "preset://gb28181/IPC-0003"
+    },
+    {
+      "id": "IPC-0004",
+      "name": "交子大道 · 天桥东侧",
+      "road": "交子大道",
+      "zone": "B",
+      "zone_name": "交子金融片区",
+      "type": "IPC",
+      "model": "Hi3516 级智能 IPC",
+      "lat": 30.5672,
+      "lng": 104.0741,
+      "mount": "立杆 6m · 朝西",
+      "resolution": "1080P@15fps",
+      "npu_tops": 0.5,
+      "edge_node": "EDGE-02",
+      "status": "offline",
+      "stream_url": null,
+      "rtsp": "preset://gb28181/IPC-0004"
+    },
+    {
+      "id": "IPC-0005",
+      "name": "益州大道 · 软件园南门",
+      "road": "益州大道",
+      "zone": "C",
+      "zone_name": "南部园区片区",
+      "type": "IPC",
+      "model": "RV1106 级智能 IPC",
+      "lat": 30.5589,
+      "lng": 104.0629,
+      "mount": "立杆 6m · 朝北",
+      "resolution": "1080P@15fps",
+      "npu_tops": 0.5,
+      "edge_node": "EDGE-03",
+      "status": "offline",
+      "stream_url": null,
+      "rtsp": "preset://gb28181/IPC-0005"
+    },
+    {
+      "id": "IPC-0006",
+      "name": "剑南大道 · 中和立交北",
+      "road": "剑南大道",
+      "zone": "C",
+      "zone_name": "南部园区片区",
+      "type": "IPC",
+      "model": "RV1106 级智能 IPC",
+      "lat": 30.5645,
+      "lng": 104.0553,
+      "mount": "立杆 7m · 朝南",
+      "resolution": "1080P@15fps",
+      "npu_tops": 0.5,
+      "edge_node": "EDGE-03",
+      "status": "offline",
+      "stream_url": null,
+      "rtsp": "preset://gb28181/IPC-0006"
+    },
+    {
+      "id": "IPC-0007",
+      "name": "世纪城路 · 会展中心北",
+      "road": "世纪城路",
+      "zone": "B",
+      "zone_name": "交子金融片区",
+      "type": "IPC",
+      "model": "Hi3516 级智能 IPC",
+      "lat": 30.5725,
+      "lng": 104.0801,
+      "mount": "球机 4m · 全景",
+      "resolution": "1080P@15fps",
+      "npu_tops": 0.5,
+      "edge_node": "EDGE-02",
+      "status": "offline",
+      "stream_url": null,
+      "rtsp": "preset://gb28181/IPC-0007"
+    },
+    {
+      "id": "IPC-0008",
+      "name": "中和大道 · 二街口",
+      "road": "中和大道",
+      "zone": "C",
+      "zone_name": "南部园区片区",
+      "type": "IPC",
+      "model": "RV1106 级智能 IPC",
+      "lat": 30.5604,
+      "lng": 104.0502,
+      "mount": "立杆 6m · 朝东",
+      "resolution": "1080P@15fps",
+      "npu_tops": 0.5,
+      "edge_node": "EDGE-03",
+      "status": "offline",
+      "stream_url": null,
+      "rtsp": "preset://gb28181/IPC-0008"
+    }
+  ],
+
+  "edge_nodes": [
+    {
+      "id": "EDGE-01",
+      "name": "街区边缘节点 A",
+      "zone": "A",
+      "lat": 30.5784,
+      "lng": 104.0660,
+      "tops": 40,
+      "chip": "2×RK3588",
+      "manages": 300,
+      "disk_buffer_gb": 512,
+      "orchestrator": "K3s",
+      "status": "offline"
+    },
+    {
+      "id": "EDGE-02",
+      "name": "街区边缘节点 B",
+      "zone": "B",
+      "lat": 30.5709,
+      "lng": 104.0727,
+      "tops": 40,
+      "chip": "2×RK3588",
+      "manages": 300,
+      "disk_buffer_gb": 512,
+      "orchestrator": "K3s",
+      "status": "offline"
+    },
+    {
+      "id": "EDGE-03",
+      "name": "街区边缘节点 C",
+      "zone": "C",
+      "lat": 30.5617,
+      "lng": 104.0575,
+      "tops": 40,
+      "chip": "2×RK3588",
+      "manages": 300,
+      "disk_buffer_gb": 512,
+      "orchestrator": "K3s",
+      "status": "offline"
+    }
+  ],
+
+  "zones": [
+    { "id": "A", "name": "天府大道片区", "color": "#4dabf7" },
+    { "id": "B", "name": "交子金融片区", "color": "#a78bfa" },
+    { "id": "C", "name": "南部园区片区", "color": "#37d67a" }
+  ],
+
+  "demo_tracks": [
+    {
+      "person": "P-0001",
+      "label": "跨镜头轨迹示例 1",
+      "points": ["IPC-0001", "IPC-0002", "IPC-0003", "IPC-0007"]
+    },
+    {
+      "person": "P-0002",
+      "label": "跨镜头轨迹示例 2",
+      "points": ["IPC-0006", "IPC-0005", "IPC-0004"]
+    }
+  ]
+}

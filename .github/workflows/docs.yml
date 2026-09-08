@@ -1,0 +1,60 @@
+name: docs
+
+# Build the Zensical documentation site and publish it to GitHub Pages.
+on:
+  push:
+    branches: [master, main]
+    paths:
+      - "docs/**"
+      - "zensical.toml"
+      - ".github/workflows/docs.yml"
+  pull_request:
+    branches: [master, main]
+    paths:
+      - "docs/**"
+      - "zensical.toml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deploy; newer pushes cancel in-progress builds.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v5
+
+      # Build with an ephemeral, pinned zensical only (avoids syncing torch et al.).
+      - name: Build docs
+        run: uvx --from 'zensical==0.0.66' zensical build
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    # Only publish from the default branch, not from pull requests.
+    if: github.event_name != 'pull_request'
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

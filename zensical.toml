@@ -1,0 +1,77 @@
+# Zensical 設定 —— 跨镜头 Re-ID 目标追踪系统文档
+# 预览： uv run zensical serve      构建： uv run zensical build
+#
+# i18n 说明：Zensical 尚无「内容翻译」插件（仅列入 roadmap）。因此：
+#   * theme.language = "ja"  —— 界面（导航/搜索/页脚等 chrome）默认日文，满足「ja-JP by default」
+#   * extra.alternate        —— 头部语言下拉，一键跳到各语言首页（ja / zh-TW / en）
+#   * 正文三语言树（docs/ja、docs/zh-TW、docs/en）由人工翻译维护
+
+[project]
+site_name = "カメラ間 Re-ID 目標追跡システム"
+site_description = "都市規模（万級カメラ）のカメラ間 Re-ID 目標追跡システム —— 検証用 demo のドキュメント"
+site_url = "http://localhost:8000/"
+docs_dir = "docs"
+site_dir = "site"
+copyright = "検証用 demo · 一部コードは流用で、最終システムを表すものではありません"
+
+# 4 个顶栏标签（navigation.tabs 开启后，顶层 section 渲染为标签）；
+# 每个标签下并列该主题的三种语言页面。
+nav = [
+  { "プロジェクト概要" = [
+    { "日本語" = "ja/index.md" },
+    { "繁體中文" = "zh-TW/index.md" },
+    { "English" = "en/index.md" },
+  ] },
+  { "API リファレンス" = [
+    { "日本語" = "ja/api.md" },
+    { "繁體中文" = "zh-TW/api.md" },
+    { "English" = "en/api.md" },
+  ] },
+  { "使い方" = [
+    { "日本語" = "ja/usage.md" },
+    { "繁體中文" = "zh-TW/usage.md" },
+    { "English" = "en/usage.md" },
+  ] },
+  { "システム設計" = [
+    { "日本語" = "ja/system.md" },
+    { "繁體中文" = "zh-TW/system.md" },
+    { "English" = "en/system.md" },
+  ] },
+]
+
+[project.theme]
+language = "ja"
+features = [
+  "navigation.tabs",
+  "navigation.sections",
+  "navigation.top",
+  "navigation.tracking",
+  "toc.follow",
+]
+
+[[project.theme.palette]]
+scheme = "slate"
+primary = "indigo"
+accent = "indigo"
+
+# 头部语言选择器：link 为相对当前站点根的路径（site_url 已设为根）。
+[project.extra]
+alternate = [
+  { name = "日本語", link = "./ja/", lang = "ja" },
+  { name = "繁體中文", link = "./zh-TW/", lang = "zh-TW" },
+  { name = "English", link = "./en/", lang = "en" },
+]
+
+[project.plugins.search]
+lang = [
+  "ja",
+  "zh",
+  "en",
+]
+
+[project.markdown_extensions.admonition]
+[project.markdown_extensions.toc]
+permalink = true
+[project.markdown_extensions."pymdownx.superfences"]
+[project.markdown_extensions."pymdownx.details"]
+[project.markdown_extensions.tables]

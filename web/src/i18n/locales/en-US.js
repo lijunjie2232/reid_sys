@@ -18,6 +18,8 @@ export default {
     score: 'Score',
     threshold: 'Threshold',
     language: 'Language',
+    prev: 'Prev',
+    next: 'Next',
     feasibility: 'This project is a feasibility study only — parts of the code are carried over and do not represent the final system.',
   },
   tabs: {
@@ -53,6 +55,7 @@ export default {
     probeSubtitle: '{n} captures · single view',
     filterPlaceholder: 'Filter by filename, e.g. 01',
     upload: 'Upload',
+    run: 'Search',
     uploadTip: 'Upload any image for image-to-person search',
     clickHint: 'Click any capture to run a Milvus vector KNN search',
     params: 'Search Parameters',
@@ -76,6 +79,7 @@ export default {
     subtitleDs: '{ds} · {n} gallery images currently',
     filterPlaceholder: 'Filter filename / personID',
     hitCount: '{n} hits · personID 0000 marks distractors belonging to no probe',
+    pageLabel: 'Page {a} / {b}',
   },
   detect: {
     singleTitle: 'Endpoint · Single-frame person detection',
@@ -447,5 +451,19 @@ export default {
     actualModel: 'fast-reid SBS-R50-ibn (2048-d), not MobileNetV3-INT8 (128-d)',
     deploy: 'Deploy script',
     actualDeploy: 'serve.py + scripts/*.py, not a Helm chart',
+  },
+  // Strings only used by the Hugging Face Space (Gradio) build. Unused by the React app,
+  // but the three locales must stay key-aligned.
+  space: {
+    runtime: 'This page is the Hugging Face Space build: Gradio frontend + ZeroGPU dynamic GPU inference (torch CUDA).',
+    firstIndex: 'The first search builds the vector index on the GPU first (~10-30s)',
+    indexing: 'Building the vector index…',
+    notConnectedNote: '{name} requires a real device-management platform / container cluster; not connected in this demo, so all values are left blank.',
+    metricDevice: 'Devices',
+    metricOnline: 'Online',
+    metricRtt: 'Avg RTT',
+    metricLoad: 'Compute load',
+    mapNote: 'Compliant basemaps (Tencent Maps / AMap / Baidu / Tianditu, GCJ-02) need a backend-proxied key, so the Space build loads no basemap and keeps only the compliance notes.',
+    archDoc: 'The full design (scale, cost, dual data centers, 24h schedule, watchlist alerting, Smart Gateway routing) lives in docs/SYSTEM.md.',
   },
 }

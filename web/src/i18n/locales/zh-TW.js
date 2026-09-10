@@ -18,6 +18,8 @@ export default {
     score: '分數',
     threshold: '閾值',
     language: '語言',
+    prev: '上一頁',
+    next: '下一頁',
     feasibility: '當前專案僅僅作為前期可行性驗證使用，部分程式沿用但並不代表最終系統。',
   },
   tabs: {
@@ -53,6 +55,7 @@ export default {
     probeSubtitle: '{n} 張抓拍圖 · 單視角',
     filterPlaceholder: '按檔案名過濾，例如 01',
     upload: '上傳',
+    run: '搜人',
     uploadTip: '上傳任意圖片做以圖搜人',
     clickHint: '點擊任意抓拍圖發起 Milvus 向量近鄰檢索',
     params: '檢索參數',
@@ -76,6 +79,7 @@ export default {
     subtitleDs: '{ds} · 目前 {n} 張底庫影像',
     filterPlaceholder: '過濾檔案名 / personID',
     hitCount: '命中 {n} 張 · personID 0000 表示不屬於任何 probe 的干擾圖',
+    pageLabel: '第 {a} / {b} 頁',
   },
   detect: {
     singleTitle: '端側 · 單幀 person 檢測',
@@ -445,5 +449,18 @@ export default {
     actualModel: 'fast-reid SBS-R50-ibn（2048 維），非 MobileNetV3-INT8（128 維）',
     deploy: '部署腳本',
     actualDeploy: 'serve.py + scripts/*.py，非 Helm Chart',
+  },
+  // Hugging Face Space（Gradio）版本專用文案。React 前端用不到，但三語 key 必須對齊。
+  space: {
+    runtime: '本頁為 Hugging Face Space 版本：Gradio 前端 + ZeroGPU 動態分配 GPU 推理（torch CUDA）。',
+    firstIndex: '首次檢索會先在 GPU 上建立向量索引（約 10~30 秒）',
+    indexing: '正在建立向量索引…',
+    notConnectedNote: '{name}需要接入真實裝置管理平台 / 容器叢集，本 demo 尚未接入，數值一律留空。',
+    metricDevice: '裝置數',
+    metricOnline: '線上',
+    metricRtt: '平均 RTT',
+    metricLoad: '算力負載',
+    mapNote: '合規底圖（騰訊地圖 / 高德 / 百度 / 天地圖，GCJ-02）需由後端代理密鑰，Space 版未接入底圖，僅保留合規說明。',
+    archDoc: '完整設計（規模、造價、雙機房、24 小時分時、佈控告警、Smart Gateway 路由）見 docs/SYSTEM.md。',
   },
 }

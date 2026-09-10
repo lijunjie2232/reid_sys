@@ -18,6 +18,8 @@ export default {
     score: 'スコア',
     threshold: 'しきい値',
     language: '言語',
+    prev: '前へ',
+    next: '次へ',
     feasibility: '本プロジェクトは前期フィジビリティ検証のみを目的としており、一部コードは流用していますが最終システムを表すものではありません。',
   },
   tabs: {
@@ -53,6 +55,7 @@ export default {
     probeSubtitle: '{n} 件のキャプチャ · 単一視点',
     filterPlaceholder: 'ファイル名で絞り込み（例: 01）',
     upload: 'アップロード',
+    run: '検索',
     uploadTip: '任意の画像をアップロードして人物検索',
     clickHint: 'キャプチャをクリックすると Milvus のベクトル近傍検索を実行します',
     params: '検索パラメータ',
@@ -76,6 +79,7 @@ export default {
     subtitleDs: '{ds} · 現在 {n} 件のギャラリー画像',
     filterPlaceholder: 'ファイル名 / personID で絞り込み',
     hitCount: '{n} 件ヒット · personID 0000 はどの probe にも属さない妨害画像',
+    pageLabel: '{a} / {b} ページ',
   },
   detect: {
     singleTitle: '端末側 · 単一フレームの人物検出',
@@ -447,5 +451,18 @@ export default {
     actualModel: 'fast-reid SBS-R50-ibn（2048 次元）、MobileNetV3-INT8（128 次元）ではない',
     deploy: 'デプロイスクリプト',
     actualDeploy: 'serve.py + scripts/*.py、Helm Chart ではない',
+  },
+  // Hugging Face Space（Gradio）版専用の文言。React 側では未使用だが、三言語の key は揃える。
+  space: {
+    runtime: '本ページは Hugging Face Space 版です：Gradio フロントエンド + ZeroGPU による動的 GPU 推論（torch CUDA）。',
+    firstIndex: '最初の検索では GPU 上でベクトル索引を構築します（約10〜30秒）',
+    indexing: 'ベクトル索引を構築中…',
+    notConnectedNote: '{name} は実機のデバイス管理基盤 / コンテナクラスタへの接続が必要ですが、本デモでは未接続のため値はすべて空欄です。',
+    metricDevice: 'デバイス数',
+    metricOnline: 'オンライン',
+    metricRtt: '平均 RTT',
+    metricLoad: '演算負荷',
+    mapNote: '準拠した地図（Tencent 地図 / AMap / Baidu / 天地図、GCJ-02）はバックエンドで代理するキーが必要なため、Space 版では地図を読み込まず準拠事項のみ表示します。',
+    archDoc: '詳細設計（規模・コスト・二重データセンター・24 時間スケジュール・ウォッチリスト通知・Smart Gateway ルーティング）は docs/SYSTEM.md を参照。',
   },
 }

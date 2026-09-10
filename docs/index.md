@@ -15,17 +15,29 @@ hide:
 
 <div class="grid cards" markdown>
 
--   **日本語** — システム概要、API、使い方、設計
+-   :material-translate:{ .lg .middle } __日本語__
 
-    [ドキュメントへ →](ja/index.md)
+    ---
 
--   **繁體中文** — 系統索引、API、使用方式、系統設計
+    システム概要・API・使い方・システム設計
 
-    [前往文件 →](zh-TW/index.md)
+    [:octicons-arrow-right-24: ドキュメントへ](ja/index.md)
 
--   **English** — Project index, API reference, usage, system design
+-   :material-format-text:{ .lg .middle } __繁體中文__
 
-    [Go to docs →](en/index.md)
+    ---
+
+    系統索引、API 文件、使用方式、系統設計
+
+    [:octicons-arrow-right-24: 前往文件](zh-TW/index.md)
+
+-   :material-web:{ .lg .middle } __English__
+
+    ---
+
+    Project index, API reference, usage and system design
+
+    [:octicons-arrow-right-24: Go to docs](en/index.md)
 
 </div>
 

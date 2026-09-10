@@ -29,20 +29,24 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Set up uv
         uses: astral-sh/setup-uv@v5
 
       # Build with an ephemeral, pinned zensical only (avoids syncing torch et al.).
       - name: Build docs
-        run: uvx --from 'zensical==0.0.66' zensical build
+        run: uvx --from 'zensical==0.0.66' zensical build --clean
 
       - name: Configure Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
+        with:
+          # Auto-enable GitHub Pages (build = GitHub Actions) on first run,
+          # so the job works even before Pages is toggled on in repo Settings.
+          enablement: true
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: site
 
@@ -57,4 +61,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5

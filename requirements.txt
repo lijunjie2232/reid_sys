@@ -1,0 +1,36 @@
+# Hugging Face Space（Gradio SDK + ZeroGPU）依赖
+#
+# torch / torchvision 故意不写版本：
+#   * ZeroGPU 支持 torch 2.8.0 ~ 最新，官方镜像里已经装好，写死反而可能把它降级；
+#   * 本机 pyproject.toml 里 `<2.7.1` 的 cu126 约束是给 GTX 1050 Ti（sm_61）用的，
+#     那条约束跟 ZeroGPU 无关，不要带到这里来。
+#   * 如果 Space 报 `No module named 'torch'`，再加一行 `torch>=2.8.0`。
+spaces
+gradio==6.29.0
+
+# 云侧：向量库。milvus-lite 3.x 是纯 Python 的进程内 Milvus，Linux 上可直接用文件库。
+pymilvus>=2.5
+milvus-lite>=3.2
+faiss-cpu
+pyarrow
+
+# 端侧：yolo26n 检测 + ByteTrack。
+# third_part/ultralytics 是 submodule（v8.4.165 + 1 个纯文档提交），
+# PyPI 上的 8.4.165 与它等价，所以不把整个仓库搬上 Space。
+ultralytics>=8.4.165
+
+# fast-reid 运行期依赖 —— third_part/fast-reid 没有 setup.py，走 sys.path 引入，
+# 这几个包由它的 import 链直接需要（与 pyproject.toml 里记的一致）。
+yacs
+termcolor
+tabulate
+scikit-learn
+matplotlib
+scipy
+prettytable
+easydict
+pyyaml
+
+# 通用（opencv 由 ultralytics 带进来）
+numpy
+pillow

@@ -28,5 +28,6 @@ uv run python serve.py  # 啟動 Smart Gateway → http://127.0.0.1:8000
 | API 文件（Smart Gateway 全部端點） | [docs/zh-TW/api.md](docs/zh-TW/api.md) |
 | 系統設計（三級協同、雙機房、Mamba、布控） | [docs/zh-TW/system.md](docs/zh-TW/system.md) |
 | 上流設計說明書（原文） | [SYSTEM.md](SYSTEM.md) |
+| 部署到 Hugging Face Space（Gradio 版 `app.py`） | [docs/SPACE.md](docs/SPACE.md) |
 
 本文件站的建置：`uv run zensical serve`（本地預覽）/ `uv run zensical build`（靜態輸出至 `site/`）。

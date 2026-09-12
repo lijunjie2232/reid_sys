@@ -30,5 +30,6 @@ uv run python serve.py  # start the Smart Gateway → http://127.0.0.1:8000
 | API reference (every Smart Gateway endpoint) | [docs/en/api.md](docs/en/api.md) |
 | System design (three-tier, dual data center, Mamba, watchlist) | [docs/en/system.md](docs/en/system.md) |
 | High-level design spec (original) | [SYSTEM.md](SYSTEM.md) |
+| Deploy to a Hugging Face Space (Gradio `app.py`) | [docs/SPACE.md](docs/SPACE.md) |
 
 Build this docs site: `uv run zensical serve` (preview) / `uv run zensical build` (static output to `site/`).

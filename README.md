@@ -32,5 +32,6 @@ uv run python serve.py  # Smart Gateway を起動 → http://127.0.0.1:8000
 | API リファレンス（Smart Gateway の全エンドポイント） | [docs/ja/api.md](docs/ja/api.md) |
 | システム設計（三層協同・2 データセンター・Mamba・ウォッチリスト） | [docs/ja/system.md](docs/ja/system.md) |
 | 上流設計説明書（中国語原文） | [SYSTEM.md](SYSTEM.md) |
+| Hugging Face Space へのデプロイ（Gradio 版 `app.py`） | [docs/SPACE.md](docs/SPACE.md) |
 
 本ドキュメントサイトのビルド：`uv run zensical serve`（プレビュー）/ `uv run zensical build`（`site/` に静的出力）。
